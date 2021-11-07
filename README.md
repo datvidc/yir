@@ -12,6 +12,16 @@ _The days are long, but the years are short_
 
 Users can register, and begin to create memories. Memories are stored and kept in order by date. User can CRUD memories.
 
+### Main setup
+
+Project consist of an API and a frontend. Api saves users and memories, and frontend allows users to register, login, and CRUD memories.
+
+_Backend API_
+The backend is found in the backend folder. Setup Instructions is found in the ReadMe file inside that folder.
+
+_frontend_
+React frontend in the Frontend folder. Setup instructions is found in the ReadMe folder inside the folder.
+
 #### Memories
 
 Memories includes

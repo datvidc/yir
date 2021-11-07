@@ -29,4 +29,5 @@ Memories includes
 
 The idea for the app is ruthlessly and shamelessly copied from the Chingu project
 [Chingu Solo Project - Tier 3 - Journal App] (https://github.com/chingu-voyages/soloproject-tier3-journal-app)
-I have only added a very thin veneer of originality, as I have indeed been doing Year in Reviews with my family using a combination of tools...but no longer.
+I have only added a very thin veneer of originality, as I have indeed been doing Year in Reviews with my family using a combination of tools...
+but why waiste 5 minuttes using sub-par tools, when I can labouriously over-engineer a solution in just a few days.

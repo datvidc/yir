@@ -20,3 +20,7 @@ Memories includes
 - Heading
 - description
   TODO: link for picture to be included.
+
+#### SCRUM board
+
+[link to Trello] (https://trello.com/b/iphM6F8L/year-in-review)

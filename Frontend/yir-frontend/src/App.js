@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import './App.css';
 
+import { Redirect, PrivateRoute } from './utils/helperfunc';
 import Main from './components/Main/Main';
+import LogOnIn from './components/LogOnIn/LogOnIn';
 
 function App() {
 
@@ -16,13 +18,17 @@ function App() {
     <main className="App">
       <BrowserRouter>
         <Routes>
-          <Route exact path="/">
-            < Main />
+          <Route exact path="/" element={<LogOnIn signup={true} />} >
+            <Route
+              path="home"
+              element={
+                <PrivateRoute PrivateRoute redirectTo="/" auth={user}>
+                  <Main />
+                </PrivateRoute>
+              }
+            />
           </Route>
-          {/* protected route */}
-          <Route path="*" >
-
-          </Route>
+          <Redirect path="*" to="/" />
         </Routes>
       </BrowserRouter>
 

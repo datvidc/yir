@@ -10,7 +10,7 @@ import LogOnIn from './components/LogOnIn/LogOnIn';
 function App() {
 
   /* User oriented states: */
-  const [user, setUser] = useState("true")
+  const [user, setUser] = useState(true);
   const [userObj, setUserObj] = useState({});
 
 
@@ -19,20 +19,18 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<LogOnIn signup={true} />} >
-            <Route
-              path="home"
-              element={
-                <PrivateRoute PrivateRoute redirectTo="/" auth={user}>
-                  <Main />
-                </PrivateRoute>
-              }
-            />
           </Route>
-          <Redirect path="*" to="/" />
+          <Route
+            path="/home"
+            element={
+              <PrivateRoute PrivateRoute redirectTo="/" auth={user}>
+                <Main />
+              </PrivateRoute>
+            }
+          />
+          <Route path="*" element={<Redirect to="/" />} />
         </Routes>
       </BrowserRouter>
-
-      <h1> Year in Review</h1>
     </main>
   );
 }

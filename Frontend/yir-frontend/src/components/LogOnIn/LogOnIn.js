@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const LogOnIn = (props) => {
-    const [user, signup] = props;
+    const { user, signup } = props;
 
     const [isSignup, setIsSignup] = useState(false);
 
@@ -11,11 +11,11 @@ const LogOnIn = (props) => {
 
     const btnText = isSignup ? "Signup" : "SignIn";
 
-
-
     return (
-        <p> {signup} </p>
-        <button  onClick={toggleSign}> {btnText} </button>
+        <div className="sign">
+            <p> {signup} </p>
+            <button onClick={toggleSign}> {btnText} </button>
+        </div>
     )
 }
 

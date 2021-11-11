@@ -5,3 +5,9 @@
   background-color: var(--main-bg-color);
   color: var(--mem-bg-light);
 }
+
+.sign {
+  width: 80vw;
+  height: 80vh;
+  background-color: var(--mem-bg-light);
+}

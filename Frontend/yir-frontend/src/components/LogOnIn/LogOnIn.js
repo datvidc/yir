@@ -1,5 +1,19 @@
 import React, { useState } from 'react';
 
+import img1 from '../../img/george-pak.webp';
+import img2 from '../../img/pexels-any-lan-e.webp';
+import img3 from '../../img/pexels-any-lane.webp';
+import img4 from '../../img/pexels-cottonbro1e.webp';
+import img5 from '../../img/pexels-cottonbro2e.webp';
+import img6 from '../../img/pexels-cottonbroe.webp';
+import img7 from '../../img/pexels-elina-fairytale.webp';
+import img8 from '../../img/pexels-nataliya-vaitkevich-52901.webp';
+import img9 from '../../img/pexels-nicole-michalou-5764889.webp';
+import img10 from '../../img/pexels-nicole-michalou-9.webp';
+import img11 from '../../img/pexels-rodnae-productions-6518005.webp';
+import img12 from '../../img/pexels-tima-miroshnichenko-5813726.webp';
+
+
 const LogOnIn = (props) => {
     const { user, signup } = props;
 
@@ -89,9 +103,20 @@ const LogOnIn = (props) => {
                         <button onClick={handleSigninClick} type={emailValid && passwordValid && UsernameValid ? 'submit' : 'button'} className={signupBtn}>Sign up</button>
                     </>
                 )}
-
-
             </form>
+            <div className="sign__imgFolder">
+                <img className="sign__img" src={img1} />
+                <img className="sign__img" src={img2} />
+                <img className="sign__img" src={img3} />
+                <img className="sign__img" src={img4} />
+                <img className="sign__img" src={img5} />
+
+                <img className="sign__img" src={img6} />
+                <img className="sign__img" src={img7} />
+                <img className="sign__img" src={img8} />
+                <img className="sign__img" src={img9} />
+                <img className="sign__img" src={img10} />
+            </div>
 
 
         </div>

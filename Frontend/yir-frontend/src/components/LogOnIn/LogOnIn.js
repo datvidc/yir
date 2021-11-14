@@ -17,7 +17,7 @@ const LogOnIn = (props) => {
     const { user, signup } = props;
 
     const images = [
-        { img1 }, { img2 }, 'img3', 'img4', 'img5', 'img6', 'img7', 'img8', 'img9', 'img10'
+        img1, img2, img3, img4, img5, img6, img7, img8, img9, img10
     ];
 
     const [isSignup, setIsSignup] = useState(true);
@@ -117,6 +117,8 @@ const LogOnIn = (props) => {
                 {
                     images.map((img) => {
                         let rando = randomgenerator();
+                        console.log(rando);
+                        let stuff = ``
                         return <img className="sign__img" src={img} alt="memories" />
                     })
                 }

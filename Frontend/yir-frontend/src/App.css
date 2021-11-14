@@ -35,6 +35,7 @@
   flex-wrap: wrap;
   margin-top: 4em;
 }
+
 .sign__img {
-  transform: rotate(20deg);
+  transform: rotate(24deg);
 }

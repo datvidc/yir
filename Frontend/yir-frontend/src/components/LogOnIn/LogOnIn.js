@@ -13,9 +13,12 @@ import img10 from '../../img/pexels-nicole-michalou-9.webp';
 import img11 from '../../img/pexels-rodnae-productions-6518005.webp';
 import img12 from '../../img/pexels-tima-miroshnichenko-5813726.webp';
 
-
 const LogOnIn = (props) => {
     const { user, signup } = props;
+
+    const images = [
+        { img1 }, { img2 }, 'img3', 'img4', 'img5', 'img6', 'img7', 'img8', 'img9', 'img10'
+    ];
 
     const [isSignup, setIsSignup] = useState(true);
     /* form validators */
@@ -78,6 +81,12 @@ const LogOnIn = (props) => {
             /* handlesignup(email, password, username); */
         }
     };
+    /* 
+        Image degree calculator function     */
+    const randomgenerator = () => {
+        let numRand = Math.floor(Math.random() * 26)
+        return numRand;
+    };
 
 
     const btnText = signup ? "Signup" : "SignIn";
@@ -105,17 +114,12 @@ const LogOnIn = (props) => {
                 )}
             </form>
             <div className="sign__imgFolder">
-                <img className="sign__img" src={img1} />
-                <img className="sign__img" src={img2} />
-                <img className="sign__img" src={img3} />
-                <img className="sign__img" src={img4} />
-                <img className="sign__img" src={img5} />
-
-                <img className="sign__img" src={img6} />
-                <img className="sign__img" src={img7} />
-                <img className="sign__img" src={img8} />
-                <img className="sign__img" src={img9} />
-                <img className="sign__img" src={img10} />
+                {
+                    images.map((img) => {
+                        let rando = randomgenerator();
+                        return <img className="sign__img" src={img} alt="memories" />
+                    })
+                }
             </div>
 
 

@@ -1,0 +1,27 @@
+{
+  "name": "yirapi",
+  "version": "1.0.0",
+  "description": "API for Year in Review app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/datvidc/yir.git"
+  },
+  "keywords": [
+    "Chingu",
+    "full",
+    "stack"
+  ],
+  "author": "Nomadic Dot",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/datvidc/yir/issues"
+  },
+  "homepage": "https://github.com/datvidc/yir#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

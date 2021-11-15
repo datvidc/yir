@@ -41,3 +41,17 @@ The idea for the app is ruthlessly and shamelessly copied from the Chingu projec
 [Chingu Solo Project - Tier 3 - Journal App] (https://github.com/chingu-voyages/soloproject-tier3-journal-app)
 I have only added a very thin veneer of originality, as I have indeed been doing Year in Reviews with my family using a combination of tools...
 but why waiste 5 minuttes using sub-par tools, when I can labouriously over-engineer a solution in just ~~a few days~~ a few weeks.
+
+#### Personal notes
+
+_react router dom upgrade_
+
+- New version is released..v6, which does not work with Redirect or protected routes. Why on earth does npm install v6 when the default version is still v5 ? hours waisted wondering why my standard code did not work.
+
+_Dynamic style_
+TODO - exclude dynamic style from constantly re-rendering on each input. I am using controlled components, and this causes React to re-render all pictures on each input.
+
+##### Learnings
+
+- Some experience working with Routes in React router dom v6. Very different from v5. Routes - Route and nested children.
+- CSS in JS means to really pay attention to data types. style={{style}}

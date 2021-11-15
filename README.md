@@ -48,6 +48,9 @@ _react router dom upgrade_
 
 - New version is released..v6, which does not work with Redirect or protected routes. Why on earth does npm install v6 when the default version is still v5 ? hours waisted wondering why my standard code did not work.
 
+_Dynamic style_
+TODO - exclude dynamic style from constantly re-rendering on each input. I am using controlled components, and this causes React to re-render all pictures on each input.
+
 ##### Learnings
 
 - Some experience working with Routes in React router dom v6. Very different from v5. Routes - Route and nested children.

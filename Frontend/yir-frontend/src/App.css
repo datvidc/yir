@@ -17,13 +17,13 @@
   max-width: 100%;
   border-radius: 20px;
   box-shadow: 1px 12px 6px 20px rgb(173 182 196 / 7%);
+  color: var(--main-bg-color);
 }
 
 .sign__form {
   margin: auto;
-  display: flex;
-  flex-direction: column;
   width: 30em;
+  display: grid;
 }
 .sign__img {
   height: fit-content;
@@ -39,4 +39,100 @@
 
 .sign__img {
   transform: rotate(24deg);
+}
+
+.signin__buttonValid:hover {
+  cursor: pointer;
+}
+
+.signin__signupBtn {
+  height: 64px;
+  background: #e6e8eb;
+  border-radius: 100px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #b6bcbf;
+  margin: 8px 0 0;
+  border: none;
+}
+.signin__submit {
+  width: 358px;
+  height: 64px;
+  background: #e6e8eb;
+  border-radius: 100px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #b6bcbf;
+  margin: 8px 0 0;
+  border: none;
+}
+.signin__changetype {
+  margin: auto;
+  padding-top: 1em;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.signin__buttonValid {
+  background: var(--memory-sec);
+  color: var(--mem-acc-light);
+  box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.2);
+  border-radius: 100px;
+  width: 358px;
+  height: 64px;
+  border-radius: 100px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 8px 0 0;
+}
+
+.signin__username-warning {
+  margin-bottom: 4em;
+}
+
+label {
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  color: #2f71e5;
+}
+input {
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+  border: none;
+}
+
+.signin__error {
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ff0000;
+  margin: 0em 0em 1em 0em;
 }

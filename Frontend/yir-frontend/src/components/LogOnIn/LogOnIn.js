@@ -49,6 +49,7 @@ const LogOnIn = (props) => {
         } else {
             setEmailWarn('Invalid email address');
             setEmail(event.target.value);
+            setEmailValid(false);
         }
     };
     const handlePassChange = (event) => {
@@ -60,6 +61,7 @@ const LogOnIn = (props) => {
         } else {
             setpasswordWarn('invalid Password format');
             setPassword(event.target.value);
+            setpasswordValid(false);
         }
     };
     const handleUserChange = (event) => {
@@ -71,6 +73,7 @@ const LogOnIn = (props) => {
         } else {
             setUsername(event.target.value);
             setusernameWarn('UserName is invalid');
+            setusernameValid(false);
         }
     };
     const handleSigninClick = (event) => {
@@ -112,6 +115,12 @@ const LogOnIn = (props) => {
                         <button onClick={handleSigninClick} type={emailValid && passwordValid && UsernameValid ? 'submit' : 'button'} className={signupBtn}>Sign up</button>
                     </>
                 )}
+                {!signup && (
+                    <>
+                        <p className="signin__error signin__validationError">{validationerror}</p>
+                        <button onClick={handleSigninClick} type={emailValid && passwordValid ? 'submit' : 'button'} className={submitBtn}>Sign In</button>
+                    </>
+                )}
             </form>
             <div className="sign__imgFolder">
                 {
@@ -122,7 +131,7 @@ const LogOnIn = (props) => {
             </div>
 
 
-        </div>
+        </div >
     )
 }
 

@@ -84,8 +84,8 @@ const LogOnIn = (props) => {
     /* 
         Image degree calculator function     */
     const randomgenerator = () => {
-        let numRand = Math.floor(Math.random() * 26)
-        return numRand;
+        let rando = Math.random() * 30;
+        return { transform: 'rotate' + '(' + rando + 'deg' + ')' };
     };
 
 
@@ -116,10 +116,7 @@ const LogOnIn = (props) => {
             <div className="sign__imgFolder">
                 {
                     images.map((img) => {
-                        let rando = randomgenerator();
-                        console.log(rando);
-                        let stuff = ``
-                        return <img className="sign__img" src={img} alt="memories" />
+                        return <img className="sign__img" style={randomgenerator()} src={img} alt="memories" key={img} />
                     })
                 }
             </div>

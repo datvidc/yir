@@ -50,4 +50,5 @@ _react router dom upgrade_
 
 ##### Learnings
 
-Some experience working with Routes in React router dom v6. Very different from v5. Routes - Route and nested children.
+- Some experience working with Routes in React router dom v6. Very different from v5. Routes - Route and nested children.
+- CSS in JS means to really pay attention to data types. style={{style}}

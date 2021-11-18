@@ -2,7 +2,7 @@ const router = require('express').Router();
 const Auth = require('../middleware/auth');
 const { ErrorHandler } = require('../middleware/errors');
 
-const Articlerouter = require('./articles');
+const Memorouter = require('./memo');
 const UserRouter = require('./users.js');
 const signinRouter = require('./signin');
 const signupRouter = require('./signup.js');
@@ -10,7 +10,7 @@ const signupRouter = require('./signup.js');
 router.use('/signin', signinRouter);
 router.use('/signup', signupRouter);
 
-router.use('/articles', Auth, Articlerouter);
+router.use('/memo', Auth, Memorouter);
 router.use('/users', Auth, UserRouter);
 
 // this goes last-catchall.

@@ -4,7 +4,8 @@
   "description": "API for Year in Review app",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -28,5 +29,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.13",
     "validator": "^13.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }

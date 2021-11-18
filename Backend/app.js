@@ -11,6 +11,10 @@ app.get("/url", (req, res, next) => {
     res.json(["Tony", "Lisa", "Michael", "Ginger", "Food"]);
 });
 
+app.get('/user/:id/', (req, res, next) => {
+    const { id } = req.params;
+    res.send(`user id is ${id}`)
+})
 
 /* #TODO delete the console.log...not allowed */
 app.listen(PORT, () => {

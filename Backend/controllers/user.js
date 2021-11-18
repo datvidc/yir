@@ -57,3 +57,21 @@ module.exports.signUserIn = (req, res, next) => {
             next(err);
         });
 };
+
+// get user by user ID
+module.exports.getUserById = (req, res, next) => {
+    // ref middleware auth payload
+    const userID = req.user._id;
+
+    User.findById(userID)
+        .then((user) => {
+            if (user) {
+                res.send({ data: user });
+            } else {
+                throw new ErrorHandler(404, 'User Not Found');
+            }
+        })
+        .catch((err) => {
+            next(err);
+        });
+};

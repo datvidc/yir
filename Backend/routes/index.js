@@ -5,7 +5,7 @@ const { ErrorHandler } = require('../middleware/errors');
 const Articlerouter = require('./articles');
 const UserRouter = require('./users');
 const signinRouter = require('./signin');
-const signupRouter = require('./signup');
+const signupRouter = require('./signup.js');
 
 router.use('/signin', signinRouter);
 router.use('/signup', signupRouter);

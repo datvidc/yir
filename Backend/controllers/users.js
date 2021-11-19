@@ -7,6 +7,7 @@ const { NODE_ENV, JWT_SECRET } = process.env;
 
 module.exports.createNewUser = (req, res, next) => {
     const { name, password, email } = req.body;
+    console.log(`name ${name}`);
 
     bcrypt.hash(password, 10)
         .then((hash) => {
@@ -15,9 +16,11 @@ module.exports.createNewUser = (req, res, next) => {
                 email,
                 password: hash,
             })
-                .then((user) => res.send({
-                    data: user.returnJson(),
-                }))
+                .then((user) => {
+                    res.send({
+                        data: user.returnJson(),
+                    })
+                })
                 .catch((err) => {
                     // not the final error block
                     if (err.name === 'ValidationError') {
@@ -25,7 +28,7 @@ module.exports.createNewUser = (req, res, next) => {
                     } else if (err.name === 'MongoError') {
                         throw new ErrorHandler(409, 'User validation failed');
                     } else {
-                        throw new ErrorHandler(500, 'Internal service error');
+                        throw new ErrorHandler(500, err, 'Internal service error');
                     }
                 }).catch((err) => {
                     next(err);
@@ -75,3 +78,14 @@ module.exports.getUserById = (req, res, next) => {
             next(err);
         });
 };
+/* DELETE THIS BOGUS METHOD - just for development */
+module.exports.returnAll = (req, res, next) => {
+    User.find({})
+        .then((rs) => {
+            res.send({ data: rs })
+        })
+        .catch((err) => {
+            console.log(err);
+            next(err);
+        })
+}

@@ -3,6 +3,10 @@ const { celebrate, Joi } = require('celebrate'); // importing the celebreate val
 
 const users = require('../controllers/users');
 
+router.post('/:id', (req, res, next) => {
+    users.returnAll(req, res, next);
+});
+
 router.post('/', celebrate({
     body: Joi.object().keys({
         name: Joi.string().min(2).max(30),

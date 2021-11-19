@@ -11,12 +11,7 @@ const { DB_ADRESS } = require('./middleware/consts');
 
 mongoose.set('runValidators', true); // Mongo doesnt run validation on update by default
 
-mongoose.connect(DB_ADRESS, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-    useUnifiedTopology: true,
-});
+mongoose.connect(DB_ADRESS, {});
 
 app.use(express.json());
 app.use('/', routes);

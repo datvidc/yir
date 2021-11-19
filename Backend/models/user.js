@@ -18,4 +18,11 @@ const userSchema = new mongoose.Schema({
     }
 });
 
+userSchema.methods.returnJson = function removepass() {
+    const obj = this.toObject();
+    delete obj.password;
+    return obj;
+};
+
+
 module.exports = mongoose.model('user', userSchema);

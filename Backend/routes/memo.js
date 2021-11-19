@@ -1,9 +1,9 @@
-const Memorouter = require('express').Router();
+const router = require('express').Router();
 const { celebrate, Joi } = require('celebrate'); // importing the celebreate validation lib
 
 const { createMemo, returnUsersMemo, killMemo } = require('../controllers/memos');
 
-Memorouter.post('/', celebrate({
+router.post('/', celebrate({
     body: Joi.object().keys({
         keyword: Joi.string().required(),
         title: Joi.string().required(),
@@ -15,7 +15,7 @@ Memorouter.post('/', celebrate({
     }),
 }), createMemo);
 
-Memorouter.get('/', celebrate({
+router.get('/', celebrate({
     headers: Joi.object()
         .keys({
             authorization: Joi.string().required(),
@@ -23,10 +23,10 @@ Memorouter.get('/', celebrate({
         .options({ allowUnknown: true }),
 }), returnUsersMemo);
 
-Memorouter.delete('/:id', celebrate({
+router.delete('/:id', celebrate({
     params: Joi.object().keys({
         id: Joi.string().required().length(24).hex(),
     }),
 }), killMemo);
 
-module.exports = Memorouter;
+module.exports = router;

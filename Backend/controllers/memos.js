@@ -1,4 +1,4 @@
-const Memo = require('../models/article');
+const Memo = require('../models/memo');
 const { ErrorHandler } = require('../middleware/errors'); // importing error handler
 
 module.exports.createMemo = (req, res, next) => {

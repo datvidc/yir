@@ -3,17 +3,19 @@ var express = require("express");
 var app = express();
 
 const { PORT = 3000 } = process.env;
-
+const { errors } = require('celebrate');
+const { handleError } = require('./middleware/errors');
 const routes = require('./routes/index');
 
-app.get("/url", (req, res, next) => {
-    res.json(["Tony", "Lisa", "Michael", "Ginger", "Food"]);
-});
+app.use('/', routes);
 
-app.get('/user/:id/', (req, res, next) => {
-    const { id } = req.params;
-    res.send(`user id is ${id}`)
-})
+// only celebrate errors
+app.use(errors());
+
+// error handler
+app.use((err, req, res, next) => {
+    handleError(err, res);
+});
 
 /* #TODO delete the console.log...not allowed */
 app.listen(PORT, () => {

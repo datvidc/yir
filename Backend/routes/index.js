@@ -3,7 +3,7 @@ const Auth = require('../middleware/auth');
 const { ErrorHandler } = require('../middleware/errors');
 
 const Memorouter = require('./memo');
-const UserRouter = require('./users.js');
+const UserRouter = require('./users');
 const signinRouter = require('./signin');
 const signupRouter = require('./signup.js');
 

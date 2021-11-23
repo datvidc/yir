@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs'); // importing bcrypt
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -22,6 +23,28 @@ userSchema.methods.returnJson = function removepass() {
     const obj = this.toObject();
     delete obj.password;
     return obj;
+};
+
+userSchema.statics.findUserByCredentials = function usercred(email, password, next) {
+    return this.findOne({ email }).select('+password')
+        .then((user) => {
+            if (!user) {
+                throw new ErrorHandler(401, 'Incorrect email or password');
+            }
+            return bcrypt.compare(password, user.password)
+                .then((matched) => {
+                    if (!matched) {
+                        throw new ErrorHandler(401, 'Incorrect email or password');
+                    }
+                    return user; // making user available
+                })
+                .catch((err) => {
+                    next(err);
+                });
+        })
+        .catch((error) => {
+            next(error);
+        });
 };
 
 

@@ -7,7 +7,7 @@ const { NODE_ENV, JWT_SECRET } = process.env;
 
 module.exports.createNewUser = (req, res, next) => {
     const { name, password, email } = req.body;
-    console.log(`name ${name}`);
+    console.log(`welcome user ${name}`);
 
     bcrypt.hash(password, 10)
         .then((hash) => {
@@ -27,7 +27,12 @@ module.exports.createNewUser = (req, res, next) => {
                         throw new ErrorHandler(401, 'User validation failed');
                     } else if (err.name === 'MongoError') {
                         throw new ErrorHandler(409, 'User validation failed');
-                    } else {
+                    } else if (err.name === 'MongoServerError') {
+
+                        throw new ErrorHandler(409, 'User already exists');
+                    }
+                    else {
+                        console.log(err.name);
                         throw new ErrorHandler(500, err, 'Internal service error');
                     }
                 }).catch((err) => {

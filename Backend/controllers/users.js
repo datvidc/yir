@@ -70,7 +70,6 @@ module.exports.signUserIn = (req, res, next) => {
 module.exports.getUserById = (req, res, next) => {
     // ref middleware auth payload
     const userID = req.user._id;
-
     User.findById(userID)
         .then((user) => {
             if (user) {

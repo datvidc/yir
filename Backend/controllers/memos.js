@@ -3,22 +3,18 @@ const { ErrorHandler } = require('../middleware/errors'); // importing error han
 
 module.exports.createMemo = (req, res, next) => {
     const {
-        keyword,
+        ocasion,
         title,
         text,
         date,
-        source,
-        link,
         image,
     } = req.body;
 
     Memo.create({
-        keyword,
+        ocasion,
         title,
         text,
         date,
-        source,
-        link,
         image,
         owner: req.user._id,
     })

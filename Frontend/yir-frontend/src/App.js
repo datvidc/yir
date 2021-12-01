@@ -13,25 +13,38 @@ function App() {
   const [user, setUser] = useState(true);
   const [userObj, setUserObj] = useState({});
 
+  const login = (userObject) => {
+
+    // login logic
+    setUserObj(userObject);
+    setUser(true);
+
+  }
+  const logout = () => {
+
+    // logout logic
+    setUser(false);
+    setUserObj({});
+  }
 
   return (
-    <main className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route exact path="/" element={<LogOnIn signup={true} />} >
-          </Route>
-          <Route
-            path="/home"
-            element={
-              <PrivateRoute PrivateRoute redirectTo="/" auth={user}>
-                <Main />
-              </PrivateRoute>
-            }
-          />
-          <Route path="*" element={<Redirect to="/" />} />
-        </Routes>
-      </BrowserRouter>
-    </main>
+
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/" login={login} element={<LogOnIn signup={true} />} >
+        </Route>
+        <Route
+          path="/home"
+          element={
+            <PrivateRoute PrivateRoute redirectTo="/" auth={user}>
+              <Main userinfo={userObj} logout={logout} />
+            </PrivateRoute>
+          }
+        />
+        <Route path="*" element={<Redirect to="/" />} />
+      </Routes>
+    </BrowserRouter>
+
   );
 }
 

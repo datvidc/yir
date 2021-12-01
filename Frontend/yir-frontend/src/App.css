@@ -2,8 +2,24 @@
   width: 100vw;
   height: 100vh;
   text-align: center;
-  background-color: var(--main-bg-color);
-  color: var(--mem-bg-light);
+  background-color: var(--mem-acc-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url(./img/pexels-nicole-michalou-9.webp);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.Main {
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  background-color: var(--mem-acc-light);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,12 +28,11 @@
 .sign {
   margin: auto;
   width: 80vw;
-  height: 80vh;
-  background-color: var(--mem-bg-light);
   max-width: 100%;
   border-radius: 20px;
   box-shadow: 1px 12px 6px 20px rgb(173 182 196 / 7%);
   color: var(--main-bg-color);
+  opacity: 0.9;
 }
 
 .sign__form {
@@ -87,11 +102,6 @@
 }
 
 .signin__buttonValid {
-  background: var(--memory-sec);
-  color: var(--mem-acc-light);
-  box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.2);
-  border-radius: 100px;
-  width: 358px;
   height: 64px;
   border-radius: 100px;
   font-family: "Roboto", sans-serif;
@@ -103,6 +113,9 @@
   justify-content: center;
   text-align: center;
   margin: 8px 0 0;
+  border: none;
+  background: var(--memory-sec);
+  color: var(--mem-acc-light);
 }
 
 .signin__username-warning {

@@ -18,6 +18,8 @@ function App() {
     // login logic
     setUserObj(userObject);
     setUser(true);
+    //get api of users Memo
+
 
   }
   const logout = () => {
@@ -25,6 +27,7 @@ function App() {
     // logout logic
     setUser(false);
     setUserObj({});
+    //Erase users Memo
   }
 
   return (

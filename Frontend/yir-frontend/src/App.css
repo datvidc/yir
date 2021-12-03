@@ -24,7 +24,27 @@
   justify-content: center;
   align-items: center;
 }
-
+.main_input {
+  width: 80vw;
+  color: white;
+  background-color: black;
+  opacity: 0.2;
+}
+.main_inputform {
+  margin-top: 2em;
+}
+.main_formInput {
+  width: 90%;
+  height: 44px;
+  padding: 5px 5%;
+  border: 1px solid #ccc;
+  -moz-border-radius: 27px;
+  -webkit-border-radius: 27px;
+  border-radius: 27px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
 .sign {
   margin: auto;
   width: 80vw;

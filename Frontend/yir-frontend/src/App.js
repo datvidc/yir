@@ -6,6 +6,7 @@ import './App.css';
 import { Redirect, PrivateRoute } from './utils/helperfunc';
 import Main from './components/Main/Main';
 import LogOnIn from './components/LogOnIn/LogOnIn';
+import api from './utils/api';
 
 function App() {
 
@@ -13,10 +14,23 @@ function App() {
   const [user, setUser] = useState(true);
   const [userObj, setUserObj] = useState({});
 
-  const login = (userObject) => {
+  const login = (email, password) => {
+
+    api.login(email, password)
+      .then((res) => {
+        if (res.message) {
+          throw new Error(res.message);
+        }
+        if (res.token) {
+          console.log(res.token);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
     // login logic
-    setUserObj(userObject);
+    setUserObj();
     setUser(true);
     //get api of users Memo
 
@@ -34,7 +48,7 @@ function App() {
 
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" login={login} element={<LogOnIn signup={true} />} >
+        <Route exact path="/" element={<LogOnIn signup={true} login={login} />} >
         </Route>
         <Route
           path="/home"

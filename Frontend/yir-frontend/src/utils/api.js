@@ -5,7 +5,8 @@ class Api {
         this._MainUrl = REACT_APP_API;
     }
 
-    signin(email, password) {
+    login(email, password) {
+        console.log(REACT_APP_API);
         const userUrl = this._MainUrl.concat('/signin');
         return fetch(userUrl, {
             method: 'POST',

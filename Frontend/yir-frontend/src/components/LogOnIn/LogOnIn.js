@@ -91,7 +91,7 @@ const LogOnIn = (props) => {
     return (
         <main className="App">
             <div className="sign">
-                <h2> {btnText} </h2>
+                <h2 className="signin__header"> {btnText} </h2>
                 <form className="sign__form">
                     <label htmlFor="email">Email </label>
                     <input onChange={handleEmailChange} className="signin__email" name="email" type="email" autoComplete="on" placeholder="Enter email" minLength="7" required="" />

@@ -71,7 +71,22 @@
   flex-wrap: wrap;
   margin-top: 4em;
 }
-
+.signin__header {
+  margin-bottom: 2em;
+}
+.signin__email,
+.signing__username,
+.signing__password {
+  height: 44px;
+  padding: 5px 5%;
+  border: 1px solid #ccc;
+  -moz-border-radius: 27px;
+  -webkit-border-radius: 27px;
+  border-radius: 27px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
 .sign__img {
   transform: rotate(24deg);
 }

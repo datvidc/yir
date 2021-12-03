@@ -3,7 +3,7 @@ var express = require("express");
 var app = express();
 const mongoose = require('mongoose'); // importing mongoose
 
-const { PORT = 3000 } = process.env;
+const { PORT = 8080 } = process.env;
 const { errors } = require('celebrate');
 const { handleError } = require('./middleware/errors');
 const routes = require('./routes/index');

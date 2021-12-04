@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs'); // importing bcrypt
+const { ErrorHandler } = require('../middleware/errors'); // importing error handler
 
 const userSchema = new mongoose.Schema({
     name: {

@@ -10,9 +10,9 @@ import img6 from '../../img/pexels-cottonbroe.webp';
 const LogOnIn = (props) => {
     const { user, signup, login } = props;
 
-    const images = [
-        img1, img2, img3, img4, img5, img6
-    ];
+    /*     const images = [
+            img1, img2, img3, img4, img5, img6
+        ]; */
 
     const [isSignup, setIsSignup] = useState(true);
     /* form validators */
@@ -72,12 +72,15 @@ const LogOnIn = (props) => {
     };
     const handleSigninClick = (event) => {
         event.preventDefault();
-        if (!signup) {
+        if (!isSignup) {
             login(email, password);
         } else {
             /* handlesignup(email, password, username); */
         }
     };
+    const handleChangeType = () => {
+        setIsSignup(!isSignup);
+    }
     /* 
         Image degree calculator function     */
     /*     const randomgenerator = () => {
@@ -86,7 +89,8 @@ const LogOnIn = (props) => {
         };
      */
 
-    const btnText = signup ? "Signup" : "SignIn";
+    const btnText = isSignup ? "Signup" : "SignIn";
+    const linkText = isSignup ? "SignIn" : "Signup";
 
     return (
         <main className="App">
@@ -100,7 +104,7 @@ const LogOnIn = (props) => {
                     <input onChange={handlePassChange} className="signing__password" name="password" autoComplete="on" type="password" placeholder="Enter Password" minLength="4" required="" />
                     <p className="signin__error signin__password-warning"> {passwordWarn} </p>
 
-                    {signup && (
+                    {isSignup && (
                         <>
                             <label htmlFor="userName">Username</label>
                             <input onChange={handleUserChange} className="signing__username" name="username" type="text" placeholder="Enter your Username" minLength="2" required="" />
@@ -110,13 +114,16 @@ const LogOnIn = (props) => {
                             <button onClick={handleSigninClick} type={emailValid && passwordValid && UsernameValid ? 'submit' : 'button'} className={signupBtn}>Sign up</button>
                         </>
                     )}
-                    {!signup && (
+                    {!isSignup && (
                         <>
                             <p className="signin__error signin__validationError">{validationerror}</p>
                             <button onClick={handleSigninClick} type={emailValid && passwordValid ? 'submit' : 'button'} className={submitBtn}>Sign In</button>
                         </>
                     )}
                 </form>
+                <div>
+                    <p onClick={handleChangeType}> Click here to {linkText}</p>
+                </div>
                 {/*             <div className="sign__imgFolder">
                 {
                     images.map((img) => {

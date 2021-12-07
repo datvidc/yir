@@ -23,7 +23,7 @@ function App() {
     api.signup(email, password, name)
       .then((res) => {
         console.log(res.data);
-        setUserObj(res.data);
+        setUserObj({ res.data });
         login(email, password);
 
       }).catch((err) => {

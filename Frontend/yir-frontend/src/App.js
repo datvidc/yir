@@ -21,13 +21,16 @@ function App() {
 
   const signup = (email, password, name) => {
     api.signup(email, password, name)
-      .then(() => {
+      .then((res) => {
+        console.log(res.data);
+        setUserObj(res.data);
         login(email, password);
 
       }).catch((err) => {
+        setApiError(true);
+        setApiErrMsg(err.message);
         console.log(err);
       })
-    // wrute rest iof suigbyuo logic
   }
 
   const login = (email, password) => {

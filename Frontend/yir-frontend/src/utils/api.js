@@ -59,11 +59,14 @@ class Api {
             body: JSON.stringify({ email, password, name }),
         })
             .then((res) => {
+                console.log(res);
+                return res.ok ? res : Promise.reject(res);
+            }).then((res) => {
+                console.log(res);
                 return res.json();
-            }).then((json) => {
-                return json.ok ? json : Promise.reject(json);
             })
             .catch((err) => {
+                console.log(err);
                 return Promise.reject(new Error(`${err.status} : ${err.message}`));
             });
     }

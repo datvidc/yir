@@ -183,3 +183,9 @@ input {
   color: #ff0000;
   margin: 0em 0em 1em 0em;
 }
+
+.popup {
+  position: absolute;
+  background-color: #000000;
+  height: 100vh;
+}

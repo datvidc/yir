@@ -8,7 +8,7 @@ import img5 from '../../img/pexels-cottonbro2e.webp';
 import img6 from '../../img/pexels-cottonbroe.webp';
 
 const LogOnIn = (props) => {
-    const { user, signup, login } = props;
+    const { signup, login } = props;
 
     /*     const images = [
             img1, img2, img3, img4, img5, img6
@@ -75,6 +75,7 @@ const LogOnIn = (props) => {
         if (!isSignup) {
             login(email, password);
         } else {
+            signup(email, password, username)
             /* handlesignup(email, password, username); */
         }
     };

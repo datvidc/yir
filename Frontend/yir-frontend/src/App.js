@@ -21,6 +21,12 @@ function App() {
 
   const signup = (email, password, name) => {
     api.signup(email, password, name)
+      .then(() => {
+        login(email, password);
+
+      }).catch((err) => {
+        console.log(err);
+      })
     // wrute rest iof suigbyuo logic
   }
 
@@ -33,7 +39,7 @@ function App() {
           HandleApiError(res.message);
         }
         if (res.token) {
-          console.log(res.token);
+          console.log(res);
         }
       })
       .catch((err) => {
@@ -69,7 +75,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route exact path="/" element={<LogOnIn signup={true} login={login} />} >
+          <Route exact path="/" element={<LogOnIn signup={signup} login={login} />} >
           </Route>
           <Route
             path="/home"

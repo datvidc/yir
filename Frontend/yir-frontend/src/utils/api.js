@@ -24,7 +24,10 @@ class Api {
                     return res.json();
                 }
                 return Promise.reject(new Error(`${res.status} : ${res.message}`));
-            }).catch((res) => Promise.reject(new Error(`${res.status} : ${res.message}`)));
+            })
+            .catch((res) => {
+                return Promise.reject(new Error(`${res.status} : ${res.message}`));
+            })
     }
 
     getCurrentUser(token) {

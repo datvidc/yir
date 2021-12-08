@@ -22,10 +22,10 @@ function App() {
   const signup = (email, password, name) => {
     api.signup(email, password, name)
       .then((res) => {
-        console.log(res.data);
-        setUserObj({ res.data });
-        login(email, password);
-
+        return res.json();
+      }).then((res) => {
+        console.log(res.data.email);
+        setUserObj(res.data.email);
       }).catch((err) => {
         setApiError(true);
         setApiErrMsg(err.message);

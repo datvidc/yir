@@ -22,9 +22,7 @@ function App() {
   const signup = (email, password, name) => {
     api.signup(email, password, name)
       .then((res) => {
-        return res.json();
-      }).then((res) => {
-        console.log(res.data.email);
+        console.log(typeof res.data.email);
         setUserObj(res.data.email);
       }).catch((err) => {
         setApiError(true);

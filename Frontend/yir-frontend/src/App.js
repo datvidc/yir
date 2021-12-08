@@ -22,8 +22,8 @@ function App() {
   const signup = (email, password, name) => {
     api.signup(email, password, name)
       .then((res) => {
-        console.log(typeof res.data.email);
-        setUserObj(res.data.email);
+        console.log(typeof res.data);
+        setUserObj(res.data);
       }).catch((err) => {
         setApiError(true);
         setApiErrMsg(err.message);

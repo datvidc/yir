@@ -78,7 +78,7 @@ const LogOnIn = (props) => {
         } else {
             signup(email, password, username);
         }
-
+        navigate("/home");
     };
 
     const handleChangeType = () => {

@@ -55,8 +55,8 @@ function App() {
       });
 
     // login logic
-    setUserObj();
-    setUser(true);
+    //setUserObj();
+    //setUser(true);
     //get api of users Memo
 
   }

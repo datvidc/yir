@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 import img1 from '../../img/george-pak.webp';
 import img2 from '../../img/pexels-any-lan-e.webp';
@@ -9,7 +10,7 @@ import img6 from '../../img/pexels-cottonbroe.webp';
 
 const LogOnIn = (props) => {
     const { signup, login } = props;
-
+    const navigate = useNavigate();
     /*     const images = [
             img1, img2, img3, img4, img5, img6
         ]; */
@@ -75,10 +76,11 @@ const LogOnIn = (props) => {
         if (!isSignup) {
             login(email, password);
         } else {
-            signup(email, password, username)
-            /* handlesignup(email, password, username); */
+            signup(email, password, username);
         }
+
     };
+
     const handleChangeType = () => {
         setIsSignup(!isSignup);
     }

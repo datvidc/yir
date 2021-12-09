@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useNavigate, BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import './App.css';
 
@@ -11,9 +11,11 @@ import Popup from './components/popup/popup';
 
 function App() {
 
+
   /* User oriented states: */
-  const [user, setUser] = useState(true);
+  const [user, setUser] = useState(false);
   const [userObj, setUserObj] = useState({});
+  const [token, setToken] = useState();
 
   /* Err states */
   const [apiError, setApiError] = useState(false);
@@ -22,9 +24,11 @@ function App() {
   const signup = (email, password, name) => {
     api.signup(email, password, name)
       .then((res) => {
+        login(email, password);
         console.log(typeof res.data);
         setUserObj(res.data);
-      }).catch((err) => {
+      })
+      .catch((err) => {
         setApiError(true);
         setApiErrMsg(err.message);
         console.log(err);
@@ -32,7 +36,6 @@ function App() {
   }
 
   const login = (email, password) => {
-
     api.login(email, password)
       .then((res) => {
         if (res.message) {
@@ -40,7 +43,10 @@ function App() {
           HandleApiError(res.message);
         }
         if (res.token) {
+          setToken(res.token);
           console.log(res);
+          //Lastly navigate to home
+
         }
       })
       .catch((err) => {
@@ -55,11 +61,14 @@ function App() {
 
   }
   const logout = () => {
-
     // logout logic
     setUser(false);
     setUserObj({});
     //Erase users Memo
+
+    //Lastly, push user to login screen
+
+
   }
 
   const HandleApiError = (errMsg) => {
@@ -72,6 +81,8 @@ function App() {
     setApiErrMsg('');
   }
 
+
+
   return (
     <>
       <BrowserRouter>
@@ -81,7 +92,7 @@ function App() {
           <Route
             path="/home"
             element={
-              <PrivateRoute PrivateRoute redirectTo="/" auth={user}>
+              <PrivateRoute redirectTo="/" auth={user}>
                 <Main userinfo={userObj} logout={logout} />
               </PrivateRoute>
             }

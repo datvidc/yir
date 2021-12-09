@@ -11,14 +11,13 @@ import Popup from './components/popup/popup';
 
 function App() {
 
-
   /* User oriented states: */
   const [user, setUser] = useState(false);
   const [userObj, setUserObj] = useState({});
   const [token, setToken] = useState();
 
   /* Err states */
-  const [apiError, setApiError] = useState(false);
+  const [apiError, setApiError] = useState(true);
   const [apiErrMsg, setApiErrMsg] = useState('');
 
   const signup = (email, password, name) => {
@@ -65,8 +64,6 @@ function App() {
     setUser(false);
     setUserObj({});
     //Erase users Memo
-
-    //Lastly, push user to login screen
 
 
   }

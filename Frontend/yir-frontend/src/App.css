@@ -186,6 +186,20 @@ input {
 
 .popup {
   position: absolute;
-  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.9);
   height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+}
+.signin {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.signin__yes {
+  color: white;
+  margin-top: 3em;
 }

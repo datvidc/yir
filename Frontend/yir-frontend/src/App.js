@@ -10,7 +10,7 @@ import api from './utils/api';
 import Popup from './components/popup/popup';
 
 function App() {
-
+  const navigate = useNavigate();
   /* User oriented states: */
   const [user, setUser] = useState(false);
   const [userObj, setUserObj] = useState({});
@@ -29,6 +29,7 @@ function App() {
         console.log(typeof res.data);
         setUserObj(res.data);
         setUser(true);
+
       })
       .catch((err) => {
         setApiError(true);
@@ -48,6 +49,7 @@ function App() {
           setToken(res.token);
           console.log(res);
           setUser(true);
+          navigate('/', { replace: true });
           //Lastly navigate to home
         }
       })
@@ -88,21 +90,21 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route exact path="/login" element={<LogOnIn signup={signup} login={login} />} >
-          </Route>
-          <Route
-            path="/"
-            element={
-              <PrivateRoute redirectTo="/login" auth={user}>
-                <Main userinfo={userObj} logout={logout} />
-              </PrivateRoute>
-            }
-          />
-          <Route path="*" element={<Redirect to="/login" />} />
-        </Routes>
-      </BrowserRouter>
+
+      <Routes>
+        <Route exact path="/login" element={<LogOnIn signup={signup} login={login} />} >
+        </Route>
+        <Route
+          path="/"
+          element={
+            <PrivateRoute redirectTo="/login" auth={user}>
+              <Main userinfo={userObj} logout={logout} />
+            </PrivateRoute>
+          }
+        />
+        <Route path="*" element={<Redirect to="/login" />} />
+      </Routes>
+
 
       {apiError && (
         <Popup closepop={closeApiError}>

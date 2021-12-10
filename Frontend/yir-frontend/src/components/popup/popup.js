@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 
 const Popup = (props) => {
-    const { component, children, closepop } = props;
+    const { component, children, closepop, success } = props;
 
     useEffect(() => {
         const closeModal = (event) => {
@@ -12,6 +13,10 @@ const Popup = (props) => {
         window.addEventListener('keydown', closeModal);
         return () => window.removeEventListener('keydown', closeModal);
     }, [closepop]);
+
+    useEffect(() => {
+
+    }, [success]);
 
     return (
         <>

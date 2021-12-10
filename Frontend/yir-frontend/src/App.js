@@ -20,6 +20,8 @@ function App() {
   const [apiError, setApiError] = useState(false);
   const [apiErrMsg, setApiErrMsg] = useState('');
 
+  const [success, setSuccess] = useState(false);
+
   const signup = (email, password, name) => {
     api.signup(email, password, name)
       .then((res) => {
@@ -46,9 +48,7 @@ function App() {
           setToken(res.token);
           console.log(res);
           setUser(true);
-
           //Lastly navigate to home
-
         }
       })
       .catch((err) => {
@@ -81,23 +81,26 @@ function App() {
     setApiErrMsg('');
   }
 
+  const closeSuccess = () => {
+    setSuccess(false)
+  }
 
 
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route exact path="/" element={<LogOnIn signup={signup} login={login} />} >
+          <Route exact path="/login" element={<LogOnIn signup={signup} login={login} />} >
           </Route>
           <Route
-            path="/home"
+            path="/"
             element={
-              <PrivateRoute redirectTo="/" auth={user}>
+              <PrivateRoute redirectTo="/login" auth={user}>
                 <Main userinfo={userObj} logout={logout} />
               </PrivateRoute>
             }
           />
-          <Route path="*" element={<Redirect to="/" />} />
+          <Route path="*" element={<Redirect to="/login" />} />
         </Routes>
       </BrowserRouter>
 
@@ -106,9 +109,18 @@ function App() {
           <div className="signin">
             <button type="button" aria-label="close" className="signin__close" onClick={closeApiError}> X </button>
             <h3 className="signin__yes"> Oops, something went wrong, please try again later</h3>
-            <p> {apiErrMsg} </p>
+            <p className="error__msg"> {apiErrMsg} </p>
           </div>
         </Popup>
+      )}
+      {success && (
+        <Popup closepop={closeApiError}>
+          <div className="signin">
+            <button type="button" aria-label="close" className="signin__close" onClick={closeSuccess}> X </button>
+            <h3 className="signin__yes"> Login Successful</h3>
+          </div>
+        </Popup>
+
       )}
     </>
   );

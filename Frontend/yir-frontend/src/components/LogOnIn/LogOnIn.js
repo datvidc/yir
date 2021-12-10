@@ -10,7 +10,7 @@ import img6 from '../../img/pexels-cottonbroe.webp';
 
 const LogOnIn = (props) => {
     const { signup, login } = props;
-    const navigate = useNavigate();
+
     /*     const images = [
             img1, img2, img3, img4, img5, img6
         ]; */
@@ -47,6 +47,7 @@ const LogOnIn = (props) => {
             setEmailValid(false);
         }
     };
+
     const handlePassChange = (event) => {
         event.preventDefault();
         if (event.target.closest('form').checkValidity()) {
@@ -71,6 +72,7 @@ const LogOnIn = (props) => {
             setusernameValid(false);
         }
     };
+
     const handleSigninClick = (event) => {
         event.preventDefault();
         if (!isSignup) {
@@ -78,7 +80,6 @@ const LogOnIn = (props) => {
         } else {
             signup(email, password, username);
         }
-        navigate("/home");
     };
 
     const handleChangeType = () => {

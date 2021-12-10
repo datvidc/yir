@@ -202,7 +202,10 @@ input {
   background-color: black;
   padding: 1em;
   margin: 2em;
+
+  color: white;
 }
+
 .popup :hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
@@ -217,8 +220,14 @@ input {
 .signin__close {
   height: 2em;
   width: 2em;
-
+  color: white;
+  background-color: black;
   top: -2em;
   right: -2em;
   position: absolute;
+}
+.error__msg {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 10vh;
 }

@@ -17,7 +17,7 @@ function App() {
   const [token, setToken] = useState();
 
   /* Err states */
-  const [apiError, setApiError] = useState(true);
+  const [apiError, setApiError] = useState(false);
   const [apiErrMsg, setApiErrMsg] = useState('');
 
   const signup = (email, password, name) => {
@@ -26,6 +26,7 @@ function App() {
         login(email, password);
         console.log(typeof res.data);
         setUserObj(res.data);
+        setUser(true);
       })
       .catch((err) => {
         setApiError(true);
@@ -44,6 +45,8 @@ function App() {
         if (res.token) {
           setToken(res.token);
           console.log(res);
+          setUser(true);
+
           //Lastly navigate to home
 
         }
@@ -101,7 +104,7 @@ function App() {
       {apiError && (
         <Popup closepop={closeApiError}>
           <div className="signin">
-            <button type="button" aria-label="close" className="signin__close" onClick={closeApiError} />
+            <button type="button" aria-label="close" className="signin__close" onClick={closeApiError}> X </button>
             <h3 className="signin__yes"> Oops, something went wrong, please try again later</h3>
             <p> {apiErrMsg} </p>
           </div>

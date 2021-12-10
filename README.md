@@ -47,6 +47,7 @@ but why waiste 5 minuttes using sub-par tools, when I can labouriously over-engi
 _react router dom upgrade_
 
 - New version is released..v6, which does not work with Redirect or protected routes. Why on earth does npm install v6 when the default version is still v5 ? hours waisted wondering why my standard code did not work.
+  - More v6. Navigate is substitute for useHistory() but wait...Navigate only works when wrapped in a component OR when inside the router. So basically my default architecture of handling login in my app.js file will not work.
 
 _Dynamic style_
 TODO - exclude dynamic style from constantly re-rendering on each input. I am using controlled components, and this causes React to re-render all pictures on each input.

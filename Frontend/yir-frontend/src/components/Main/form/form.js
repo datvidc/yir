@@ -1,6 +1,10 @@
 import React from 'react';
 
 const Form = () => {
+    const handleSubmitForm = (evt) => {
+        evt.preventDefault();
+        console.log("handled");
+    }
 
     return (
         <div className="main_input">
@@ -40,7 +44,7 @@ const Form = () => {
                     </div>
                 </div>
                 <div className="row">
-                    <input type="submit" value="Submit" />
+                    <input type="submit" onClick={handleSubmitForm} value="Submit" />
                 </div>
             </form>
 

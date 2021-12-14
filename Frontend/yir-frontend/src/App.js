@@ -12,7 +12,7 @@ import Popup from './components/popup/popup';
 function App() {
   const navigate = useNavigate();
   /* User oriented states: */
-  const [user, setUser] = useState(true);
+  const [user, setUser] = useState(false);
   const [userObj, setUserObj] = useState({});
   const [token, setToken] = useState();
 

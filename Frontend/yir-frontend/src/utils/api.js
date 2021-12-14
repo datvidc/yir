@@ -31,6 +31,7 @@ class Api {
     }
 
     getCurrentUser(token) {
+        console.log(token);
         const userUrl = this._MainUrl.concat('/users/me');
         return fetch(userUrl, {
             method: 'GET',
@@ -66,6 +67,45 @@ class Api {
                 return Promise.reject(new Error(`${err.status} : ${err.message}`));
             });
     }
+
+    saveAMemory(token, memo) {
+        const userUrl = this._MainUrl.concat('/memo');
+
+        let {
+            ocasion,
+            title,
+            text,
+            date,
+            image,
+        } = memo;
+
+        title = title || 'Precious Memory';
+        text = text || title;
+        date = date || title;
+        image = image || 'https://images.app.goo.gl/wFJrvsj5yrYAAtMZA';
+        ocasion = ocasion || 'festive ocasion';
+
+        return fetch(userUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({
+                ocasion, title, text, date, image,
+            }),
+        })
+            .then((res) => {
+                if (res.ok) {
+                    return res.json();
+                }
+                throw new Error(`${res.status} : ${res.message}`);
+            })
+            .catch((err) => {
+                throw new Error(`${err.status} : ${err.message}`);
+            });
+    }
+
 
 }
 

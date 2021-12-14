@@ -49,7 +49,7 @@ function App() {
           setToken(res.token);
           console.log(res);
           setUser(true);
-          getUser(token);
+          getUser(res.token);
           navigate('/', { replace: true });
           //Lastly navigate to home
         }
@@ -58,27 +58,34 @@ function App() {
         console.log(err);
         HandleApiError(err.message);
       });
-
-    // login logic
-    //setUserObj();
-    //setUser(true);
-    //get api of users Memo
-
-    const getUser = (token) => {
-
-      api.getCurrentUser(token)
-        .then((res) => {
-          console.log(res);
-        })
-        .catch((err) => {
-          console.log(err);
-        })
-      //api get user
-    }
+  }
 
 
+  const getUser = (token) => {
+    api.getCurrentUser(token)
+      .then((res) => {
+        console.log(res);
+        setUserObj(res.data);
+        setUser(true);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
 
   }
+
+  const handleCreateMemo = (memo, cleanup) => {
+    api.saveAMemory(token, memo)
+      .then((res) => {
+        console.log(res);
+        cleanup();
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+
+  }
+
   const logout = () => {
     // logout logic
     setUser(false);
@@ -113,7 +120,7 @@ function App() {
           path="/"
           element={
             <PrivateRoute redirectTo="/login" auth={user}>
-              <Main userinfo={userObj} logout={logout} />
+              <Main userinfo={userObj} logout={logout} handleCreateMemo={handleCreateMemo} />
             </PrivateRoute>
           }
         />

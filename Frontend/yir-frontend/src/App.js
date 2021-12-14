@@ -65,8 +65,17 @@ function App() {
 
     const getUser = () => {
       let uToken = token; //not necesary
+      api.getCurrentUser(token)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
       //api get user
     }
+
+
 
   }
   const logout = () => {

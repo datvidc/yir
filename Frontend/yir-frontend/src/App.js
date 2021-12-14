@@ -12,7 +12,7 @@ import Popup from './components/popup/popup';
 function App() {
   const navigate = useNavigate();
   /* User oriented states: */
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState(true);
   const [userObj, setUserObj] = useState({});
   const [token, setToken] = useState();
 
@@ -62,6 +62,11 @@ function App() {
     //setUserObj();
     //setUser(true);
     //get api of users Memo
+
+    const getUser = () => {
+      let uToken = token; //not necesary
+      //api get user
+    }
 
   }
   const logout = () => {

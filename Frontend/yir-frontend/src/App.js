@@ -49,6 +49,7 @@ function App() {
           setToken(res.token);
           console.log(res);
           setUser(true);
+          getUser(token);
           navigate('/', { replace: true });
           //Lastly navigate to home
         }
@@ -63,8 +64,8 @@ function App() {
     //setUser(true);
     //get api of users Memo
 
-    const getUser = () => {
-      let uToken = token; //not necesary
+    const getUser = (token) => {
+
       api.getCurrentUser(token)
         .then((res) => {
           console.log(res);

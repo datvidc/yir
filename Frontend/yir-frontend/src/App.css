@@ -260,6 +260,7 @@ input {
   margin-top: 2em;
   display: flex;
   width: 80vw;
+  flex-wrap: wrap;
 }
 .memo__entry {
   border: rgb(173 182 196 / 7%);

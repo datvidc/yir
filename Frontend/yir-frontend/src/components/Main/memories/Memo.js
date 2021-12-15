@@ -13,9 +13,10 @@ const Memo = (props) => {
                 onLoad={() => setLoaded(true)}
                 alt="memory"
             />
+            <h3 className="memo__head"> {title} </h3>
             <p className="date"> {date} </p>
             <p className="memo__ocasion"> {ocasion} </p>
-            <h3 className="memo__head"> {title} </h3>
+
             <p className="memo__text"> {text} </p>
 
         </div>

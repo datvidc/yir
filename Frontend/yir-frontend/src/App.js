@@ -15,6 +15,7 @@ function App() {
   const [user, setUser] = useState(false);
   const [userObj, setUserObj] = useState({});
   const [token, setToken] = useState();
+  const [memoir, setMemoir] = useState([]);
 
   /* Err states */
   const [apiError, setApiError] = useState(false);
@@ -83,16 +84,24 @@ function App() {
       .catch((err) => {
         console.log(err);
       })
-
   }
 
   const logout = () => {
     // logout logic
     setUser(false);
     setUserObj({});
+    setToken('');
     //Erase users Memo
+  }
 
-
+  const getUserMemo = () => {
+    api.getSavedMemo(token)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
   }
 
   const HandleApiError = (errMsg) => {

@@ -21,6 +21,7 @@
   text-align: center;
   background-color: var(--mem-acc-light);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -47,6 +48,28 @@
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
 }
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 2em;
+  padding: 1em;
+  width: 80vw;
+}
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1em;
+  border-radius: 25px;
+  /* row-gap: normal; */
+}
+.nav:hover {
+  transition: box-shadow 0.4s;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
 .sign {
   margin: auto;
   width: 80vw;

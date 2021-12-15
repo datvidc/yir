@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 
 const Form = (props) => {
-    const [createMemo] = props;
+    const { createMemo } = props;
 
     const [heading, setHeading] = useState('');
     const [ocasion, setOcasion] = useState('');
     const [date, setDate] = useState('');
     const [subject, setSubject] = useState('');
-
+    const [image, setImage] = useState('');
 
     const handleSubmitForm = (evt) => {
         evt.preventDefault();
         console.log("handled");
         let newMemo = ({
-            heading, ocasion, date, subject
+            heading, ocasion, date, subject, image
         });
         const resetAll = () => {
             setHeading('');
@@ -36,6 +36,10 @@ const Form = (props) => {
     }
     const handleSubjectChange = (evt) => {
         setSubject(evt.target.value);
+    }
+
+    const handleImageChange = (evt) => {
+        setImage(evt.target.value);
     }
 
     return (
@@ -67,10 +71,20 @@ const Form = (props) => {
 
                     </div>
                 </div>
+                <div className="main_row">
+                    <div className="main_col-25">
+                        <label for="date">Image Url</label>
+                    </div>
+                    <div className="main_col-75">
+                        <input value={image} onChange={handleImageChange} className="main_formInput" type="text" id="image" name="image" placeholder="URL to image" />
+
+                    </div>
+                </div>
                 <div className="row">
                     <div className="col-25">
                         <label for="subject">Subject</label>
                     </div>
+
                     <div className="col-75">
                         <textarea value={subject} onChange={handleSubjectChange} className="main_formInput" id="subject" name="subject" placeholder="Write something.." style={{ height: "200px" }} > </textarea>
                     </div>

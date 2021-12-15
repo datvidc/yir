@@ -52,7 +52,6 @@
 header {
   position: fixed;
   top: 0;
-  left: 0;
   margin: 2em;
   padding: 1em;
   width: 80vw;
@@ -255,4 +254,21 @@ input {
   overflow: hidden;
   text-overflow: ellipsis;
   max-height: 10vh;
+}
+
+.memo__container {
+  margin-top: 2em;
+  display: flex;
+  width: 80vw;
+}
+.memo__entry {
+  border: rgb(173 182 196 / 7%);
+  margin: 1em;
+  background-color: black;
+  opacity: 0.5;
+  color: white;
+}
+
+.memo__entry:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }

@@ -73,7 +73,7 @@ class Api {
 
         let {
             ocasion,
-            title,
+            heading: title,
             text,
             date,
             image,
@@ -106,8 +106,8 @@ class Api {
             });
     }
 
-    deleteAnArticle(token, id) {
-        const userUrl = this._MainUrl.concat('/articles/');
+    deleteAMemory(token, id) {
+        const userUrl = this._MainUrl.concat('/memo/');
         return fetch(`${userUrl}${id}`, {
             method: 'DELETE',
             headers: {
@@ -126,8 +126,8 @@ class Api {
             });
     }
 
-    getSavedArticles(token) {
-        const userUrl = this._MainUrl.concat('/articles');
+    getSavedMemo(token) {
+        const userUrl = this._MainUrl.concat('/memo');
         return fetch(userUrl, {
             method: 'GET',
             headers: {

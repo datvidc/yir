@@ -106,6 +106,46 @@ class Api {
             });
     }
 
+    deleteAnArticle(token, id) {
+        const userUrl = this._MainUrl.concat('/articles/');
+        return fetch(`${userUrl}${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+            },
+        })
+            .then((res) => {
+                if (res.ok) {
+                    return res.json();
+                }
+                throw new Error(`${res.status} : ${res.message}`);
+            })
+            .catch((err) => {
+                throw new Error(`${err.status} : ${err.message}`);
+            });
+    }
+
+    getSavedArticles(token) {
+        const userUrl = this._MainUrl.concat('/articles');
+        return fetch(userUrl, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+            },
+        })
+            .then((res) => {
+                if (res.ok) {
+                    return res.json();
+                }
+                throw new Error(`${res.status} : ${res.message}`);
+            })
+            .catch((err) => {
+                throw new Error(`${err.status} : ${err.message}`);
+            });
+    }
+
 
 }
 

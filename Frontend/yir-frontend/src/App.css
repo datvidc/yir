@@ -264,12 +264,18 @@ input {
   justify-content: space-between;
 }
 .memo__entry {
+  display: flex;
+  flex-direction: column;
+
   border: rgb(173 182 196 / 7%);
   margin: 1em;
+  margin-top: 0em;
   background-color: black;
   opacity: 0.5;
   color: white;
   padding: 1em;
+  padding-top: 0em;
+  width: 25%;
 
   max-width: 288px;
   list-style: none;
@@ -294,4 +300,13 @@ input {
 .memo__text {
   border: white solid 1px;
   padding: 3px;
+}
+.memo__trash {
+  right: 1em;
+  top: 1em;
+  height: 20px;
+  width: 20px;
+  align-self: flex-end;
+  padding: 0em;
+  margin: 0em;
 }

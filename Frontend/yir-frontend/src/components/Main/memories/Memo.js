@@ -17,7 +17,7 @@ const Memo = (props) => {
                 onLoad={() => setLoaded(true)}
                 alt="memory"
             />
-            <button onClick={handleDelete}> {trash``}</button>
+            <button className="memo__trash" onClick={handleDelete}>X</button>
             <h3 className="memo__head"> {title} </h3>
             <div className="memo__box">
                 <p className="date"> {date} </p>

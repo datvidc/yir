@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 
+import trash from '../../../img/trash.png';
+
 const Memo = (props) => {
     const { date, image, ocasion, text, title } = props.info;
 
     const [loaded, setLoaded] = useState(false);
-
+    const handleDelete = () => {
+        console.log('handled');
+    }
     return (
         <div className="memo__entry">
             <img
@@ -13,6 +17,7 @@ const Memo = (props) => {
                 onLoad={() => setLoaded(true)}
                 alt="memory"
             />
+            <button onClick={handleDelete}> {trash``}</button>
             <h3 className="memo__head"> {title} </h3>
             <div className="memo__box">
                 <p className="date"> {date} </p>

@@ -261,6 +261,7 @@ input {
   display: flex;
   width: 80vw;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 .memo__entry {
   border: rgb(173 182 196 / 7%);
@@ -268,8 +269,29 @@ input {
   background-color: black;
   opacity: 0.5;
   color: white;
+  padding: 1em;
+
+  max-width: 288px;
+  list-style: none;
+  border-radius: 16px;
+  position: relative;
+  box-shadow: 0 6px 10px 4px rgb(8 29 45 / 10%);
 }
 
 .memo__entry:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.memo__head {
+  margin-bottom: 1em;
+}
+.memo__box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 2em;
+}
+.memo__text {
+  border: white solid 1px;
+  padding: 3px;
 }

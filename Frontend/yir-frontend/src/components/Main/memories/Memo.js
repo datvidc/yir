@@ -14,8 +14,11 @@ const Memo = (props) => {
                 alt="memory"
             />
             <h3 className="memo__head"> {title} </h3>
-            <p className="date"> {date} </p>
-            <p className="memo__ocasion"> {ocasion} </p>
+            <div className="memo__box">
+                <p className="date"> {date} </p>
+                <p className="memo__ocasion"> {ocasion} </p>
+            </div>
+
 
             <p className="memo__text"> {text} </p>
 

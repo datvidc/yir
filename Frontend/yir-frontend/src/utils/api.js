@@ -74,7 +74,7 @@ class Api {
         let {
             ocasion,
             heading: title,
-            text,
+            subject: text,
             date,
             image,
         } = memo;

@@ -77,9 +77,16 @@ function App() {
   }
 
   const handleCreateMemo = (memo, cleanup) => {
+
     api.saveAMemory(token, memo)
       .then((res) => {
         console.log(res);
+        let num = memoir.length;
+
+        let newObj = memoir;
+        newObj[num] = res.data;
+        setMemoir(newObj)
+
         cleanup();
       })
       .catch((err) => {

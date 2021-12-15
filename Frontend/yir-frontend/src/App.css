@@ -1,6 +1,6 @@
 .App {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   text-align: center;
   background-color: var(--mem-acc-light);
   display: flex;
@@ -17,7 +17,7 @@
 }
 .Main {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   text-align: center;
   background-color: var(--mem-acc-light);
   display: flex;
@@ -50,7 +50,7 @@
 }
 
 header {
-  position: fixed;
+  position: sticky;
   top: 0;
   margin: 2em;
   padding: 1em;

@@ -51,6 +51,7 @@ function App() {
           console.log(res);
           setUser(true);
           getUser(res.token);
+          getUserMemo(res.token);
           navigate('/', { replace: true });
           //Lastly navigate to home
         }
@@ -94,10 +95,11 @@ function App() {
     //Erase users Memo
   }
 
-  const getUserMemo = () => {
+  const getUserMemo = (token) => {
     api.getSavedMemo(token)
       .then((res) => {
         console.log(res);
+        setMemoir(res);
       })
       .catch((err) => {
         console.log(err);
@@ -129,7 +131,7 @@ function App() {
           path="/"
           element={
             <PrivateRoute redirectTo="/login" auth={user}>
-              <Main userinfo={userObj} logout={logout} handleCreateMemo={handleCreateMemo} />
+              <Main userinfo={userObj} memos={memoir} logout={logout} handleCreateMemo={handleCreateMemo} />
             </PrivateRoute>
           }
         />

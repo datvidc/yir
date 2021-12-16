@@ -98,7 +98,8 @@ function App() {
     api.deleteAMemory(token, id)
       .then((res) => {
         console.log(res);
-        setMemoir(res);
+        let newArray = memoir.filter(item => item._id !== res._id);
+        setMemoir(newArray);
       })
       .catch((err) => {
         console.log(err);

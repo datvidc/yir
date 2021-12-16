@@ -94,6 +94,16 @@ function App() {
       })
   }
 
+  const handleDeleteMemo = (id) => {
+    api.deleteAMemory(token, id)
+      .then((res) => {
+        console.log(res);
+        setMemoir(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
   const logout = () => {
     // logout logic
     setUser(false);
@@ -138,7 +148,7 @@ function App() {
           path="/"
           element={
             <PrivateRoute redirectTo="/login" auth={user}>
-              <Main userinfo={userObj} memos={memoir} logout={logout} handleCreateMemo={handleCreateMemo} />
+              <Main userinfo={userObj} memos={memoir} logout={logout} handleCreateMemo={handleCreateMemo} delMem={handleDeleteMemo} />
             </PrivateRoute>
           }
         />

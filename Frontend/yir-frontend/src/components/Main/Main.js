@@ -5,7 +5,7 @@ import Nav from './Nav/Nav';
 import Memo from './memories/Memo';
 
 const Main = (props) => {
-    const { logout, handleCreateMemo, userinfo, memos } = props;
+    const { logout, handleCreateMemo, memos, delMem } = props;
 
     const [memoArr, setMemoArr] = useState([]);
 
@@ -23,7 +23,7 @@ const Main = (props) => {
             {memoArr.length > 0 && (
                 <section className="memo__container">
                     {Object.entries(memoArr).map(([key, value]) => {
-                        return <Memo key={value._id} info={value} />
+                        return <Memo del={delMem} key={value._id} info={value} />
                     })
                     }
 

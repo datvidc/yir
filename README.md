@@ -33,7 +33,7 @@ Memories includes
 
 #### SCRUM board
 
-[link to Trello] (https://trello.com/b/iphM6F8L/year-in-review)
+(outdated link to trello removed)
 
 #### Credit where Credit is due
 

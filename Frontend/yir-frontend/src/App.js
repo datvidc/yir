@@ -82,9 +82,9 @@ function App() {
       .then((res) => {
         console.log(res);
         let num = memoir.length;
+        console.log(num);
 
-        let newObj = memoir;
-        newObj[num] = res.data;
+        let newObj = [...memoir, res.data];
         setMemoir(newObj)
 
         cleanup();

@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 
-import trash from '../../../img/trash.png';
-
 const Memo = (props) => {
-    const { date, image, ocasion, text, title } = props.info;
+    const { _id: id, date, image, ocasion, text, title } = props.info;
+    const { del } = props;
 
     const [loaded, setLoaded] = useState(false);
-    const handleDelete = () => {
-        console.log('handled');
+
+    const handleDelete = (evt) => {
+        evt.preventDefault();
+        del(id);
     }
     return (
         <div className="memo__entry">
